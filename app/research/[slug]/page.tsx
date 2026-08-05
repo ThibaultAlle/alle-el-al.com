@@ -166,7 +166,7 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
 
             <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2 max-md:p-1">
               <ZoomableImage
-                src="/images/research/MT-stabilizers/CTMC_graphical_abstract.png"
+                src="/images/research/MT-stabilizers/CTMC_graphical_abstract.jpg"
                 alt="CTMC Graphical Abstract for Microtubule Stabilization"
                 className="rounded-2xl border border-border bg-card"
                 aspectClassName="aspect-video max-md:aspect-[4/3]"
