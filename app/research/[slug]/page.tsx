@@ -72,6 +72,8 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
           </ul>
         </div>
       )}
+      {slug === "bioisosteric-replacement" && (
+  <div className="mt-16 space-y-12">
                  {/* Figure 1: fluorinated isosteres */}
           <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2">
             <ZoomableImage
@@ -136,7 +138,7 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
       )}
 
       {/* MT-Stabilizers detailed content (injected after Key Approaches for MT-stab page) */}
-      {slug === "microtubule-modulating-triazolopyrimidines" && (
+      {false && slug === "microtubule-modulating-triazolopyrimidines" && (
         <div className="mt-16 space-y-12">
           {/* Rationale */}
 <div>
