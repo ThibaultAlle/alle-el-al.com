@@ -38,7 +38,7 @@ export function Hero() {
   return (
     <section id="hero" className="relative min-h-[100dvh] flex items-center justify-center pt-16 overflow-hidden bg-background">
       {/* Background Video */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 w-full h-full object-cover object-center max-md:object-[center_25%]"
         <video
           ref={videoRef}
           autoPlay
