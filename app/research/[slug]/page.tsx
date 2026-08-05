@@ -72,7 +72,17 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
           </ul>
         </div>
       )}
-                 {/* Figure 1: fluorinated isosteres */}
+
+      {/* Bioisosteric replacement detailed content (after Key Approaches) */}
+      {slug === "bioisosteric-replacement" && (
+        <div className="mt-16 space-y-12">
+          <div className="prose prose-neutral dark:prose-invert max-w-none text-[15px] text-muted-foreground text-justify">
+            <p>
+              Our laboratory maintains a strong interest in fundamental aspects of medicinal chemistry, particularly the design of carboxylic acid bioisosteres. This line of research was initiated by Prof. Carlo Ballatore and focuses on identifying fluorine-containing motifs that can effectively replace the carboxylic acid functional group while modulating key physicochemical properties such as acidity (pKa), lipophilicity, and membrane permeability. In our <a href="https://doi.org/10.1016/j.bmcl.2023.129363" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">2023 Bioorganic &amp; Medicinal Chemistry Letters study</a>, we systematically evaluated a series of fluorinated alcohols and phenols as carboxylic acid surrogates using matched molecular pair analysis. This work provided clear structure–property relationships that help guide the rational selection of bioisosteres during lead optimization (see Figure 1).
+            </p>
+          </div>
+
+          {/* Figure 1: fluorinated isosteres */}
           <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2">
             <ZoomableImage
               src="/images/research/bioisosteres/fluorinated-isosteres.png"
@@ -139,46 +149,47 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
       {slug === "microtubule-modulating-triazolopyrimidines" && (
         <div className="mt-16 space-y-12">
           {/* Rationale */}
-<div>
-  <h2 className="text-3xl font-semibold tracking-tight text-foreground mb-6">
-    Why Microtubule Stabilization for Tauopathies?
-  </h2>
-  <div className="prose prose-neutral dark:prose-invert max-w-none text-[15px] text-muted-foreground text-justify">
-    <p className="mb-4">
-      Neurodegenerative tauopathies, including Alzheimer’s disease (AD) and frontotemporal lobar degeneration, 
-      are characterized by the accumulation of hyperphosphorylated tau protein that detaches from microtubules. 
-      This loss of tau’s normal microtubule-stabilizing function disrupts axonal transport, promotes axonal dystrophy, 
-      and contributes to synaptic dysfunction and neuronal death.
-    </p>
-    <p>
-      While recent Aβ immunotherapies have advanced the field, there remains a critical need for therapies that directly address tau pathology and microtubule dysfunction. The concept of 
-      <strong> microtubule stabilization</strong> as a therapeutic strategy for tauopathies was pioneered approximately 15 years ago by Professors Carlo Ballatore, Kurt Brunden, Virginia Lee, and the late John Trojanowski. Our laboratory continues to build on this foundation, developing brain-penetrant microtubule-stabilizing agents to compensate for the loss of endogenous tau function and restore neuronal integrity.
-    </p>
-  </div>
+          <div>
+            <h2 className="text-3xl font-semibold tracking-tight text-foreground mb-6">
+              Why Microtubule Stabilization for Tauopathies?
+            </h2>
+            <div className="prose prose-neutral dark:prose-invert max-w-none text-[15px] text-muted-foreground text-justify">
+              <p className="mb-4">
+                Neurodegenerative tauopathies, including Alzheimer’s disease (AD) and frontotemporal lobar degeneration, 
+                are characterized by the accumulation of hyperphosphorylated tau protein that detaches from microtubules. 
+                This loss of tau’s normal microtubule-stabilizing function disrupts axonal transport, promotes axonal dystrophy, 
+                and contributes to synaptic dysfunction and neuronal death.
+              </p>
+              <p>
+                While recent Aβ immunotherapies have advanced the field, there remains a critical need for therapies that directly address tau pathology and microtubule dysfunction. The concept of 
+                <strong> microtubule stabilization</strong> as a therapeutic strategy for tauopathies was pioneered approximately 15 years ago by Professors Carlo Ballatore, Kurt Brunden, Virginia Lee, and the late John Trojanowski. Our laboratory continues to build on this foundation, developing brain-penetrant microtubule-stabilizing agents to compensate for the loss of endogenous tau function and restore neuronal integrity.
+              </p>
+            </div>
 
-  <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2 max-md:p-1">
-    <img
-      src="/images/research/MT-stabilizers/ctmc-graphical-abstract.png"
-      alt="CTMC Graphical Abstract for Microtubule Stabilization"
-      className="w-full rounded-2xl border border-border bg-card"
-    />
-    <div className="px-4 pt-3 pb-1 text-sm text-muted-foreground text-justify">
-      <p>
-        <strong>Figure 1.</strong> Different mode of action between taxane site binding MT-stabilizers (Epothilone D, TPI-287) and TPDs
-      </p>
-      <p className="mt-1">
-        <a
-          href="https://www.benthamscience.com/article/156309"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-accent hover:underline text-xs"
-        >
-          Yohannan, Brunden & Alle, Current Topics in Medicinal Chemistry, 2026
-        </a>
-      </p>
-    </div>
-  </div>
-</div>
+            <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2 max-md:p-1">
+              <ZoomableImage
+                src="/images/research/MT-stabilizers/ctmc-graphical-abstract.png"
+                alt="CTMC Graphical Abstract for Microtubule Stabilization"
+                className="rounded-2xl border border-border bg-card"
+                aspectClassName="aspect-video max-md:aspect-[4/3]"
+              />
+              <div className="px-4 pt-3 pb-1 text-sm text-muted-foreground text-justify">
+                <p>
+                  <strong>Figure 1.</strong> Different mode of action between taxane site binding MT-stabilizers (Epothilone D, TPI-287) and TPDs
+                </p>
+                <p className="mt-1">
+                  <a
+                    href="https://www.benthamscience.com/article/156309"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent hover:underline text-xs"
+                  >
+                    Yohannan, Brunden &amp; Alle, Current Topics in Medicinal Chemistry, 2026
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
 
           {/* CNDR-51997 */}
           <div>
