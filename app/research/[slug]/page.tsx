@@ -85,7 +85,7 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
           {/* Figure 1: fluorinated isosteres */}
           <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2">
             <ZoomableImage
-              src="/images/research/bioisosteres/fluorinated isosteres.png"
+              src="/images/research/bioisosteres/fluorinated-isosteres.png"
               alt="Fluorinated isosteres as carboxylic acid bioisosteres"
               className="rounded-2xl border border-border bg-card"
               aspectClassName="aspect-video"
@@ -109,7 +109,7 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
           {/* Figure 2: cystamine bioisostere */}
           <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2">
             <ZoomableImage
-              src="/images/research/bioisosteres/cystamine bioisostere.png"
+              src="/images/research/bioisosteres/cystamine-bioisostere.png"
               alt="Cystamine bioisostere with deuterium incorporation"
               className="rounded-2xl border border-border bg-card"
               aspectClassName="aspect-video"
