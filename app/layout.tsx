@@ -19,16 +19,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://pharmacy.ucsd.edu"),
+  metadataBase: new URL("https://www.alle-et-al.com"),
   title: "Alle et al. Lab | Medicinal Chemistry Research | UCSD",
   description: "The Alle laboratory at UC San Diego Skaggs School of Pharmacy and Pharmaceutical Sciences. Advancing medicinal chemistry through innovative research in drug discovery and chemical biology.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
     title: "Alle et al. Lab | UCSD Skaggs School of Pharmacy",
     description: "Medicinal chemistry research laboratory at UC San Diego focused on drug discovery and chemical biology.",
-    images: [{ url: "/og-image.png" }],
+    images: [{ url: "/images/Alle_lab_logo.png" }],
   },
 };
 
