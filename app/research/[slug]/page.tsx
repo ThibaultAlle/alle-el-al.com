@@ -72,7 +72,17 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
           </ul>
         </div>
       )}
-
+       {/* Figure 1: CTMC Graphical Abstract */}
+       <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2 max-md:p-1">
+       <img
+        src="/images/research/MT-stabilizers/ctmc-graphical-abstract.png"
+        alt="CTMC Graphical Abstract for Microtubule Stabilization"
+        className="w-full rounded-2xl border border-border bg-card"
+         />
+        <p className="mt-2 text-center text-sm text-muted-foreground">
+          Figure 1. CTMC Graphical Abstract for Microtubule Stabilization
+          </p>
+        </div>
       {/* Bioisosteric replacement detailed content (after Key Approaches) */}
       {slug === "bioisosteric-replacement" && (
         <div className="mt-16 space-y-12">
@@ -165,12 +175,12 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
             </div>
 
             <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2 max-md:p-1">
-              <ZoomableImage
-                src="/images/research/MT-stabilizers/ctmc-graphical-abstract.png"
-                alt="CTMC Graphical Abstract for Microtubule Stabilization"
-                className="rounded-2xl border border-border bg-card"
-                aspectClassName="aspect-video max-md:aspect-[4/3]"
-              />
+             <img
+               src="/images/research/MT-stabilizers/ctmc-graphical-abstract.png"
+               alt="CTMC Graphical Abstract for Microtubule Stabilization"
+               className="w-full rounded-2xl border border-border bg-card"
+               />
+            </div>
               <div className="px-4 pt-3 pb-1 text-sm text-muted-foreground text-justify">
                 <p><strong>Figure 1.</strong> Different mode of action between taxane site binding MT-stabilizers (Epothilone D, TPI-287) and TPDs </p>
                 <p className="mt-1">
