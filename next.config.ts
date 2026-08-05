@@ -13,6 +13,17 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Canonical host: always use www so apex and www never serve different builds.
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "alle-et-al.com" }],
+        destination: "https://www.alle-et-al.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   // Prevent stale HTML/CSS mismatches after deploys (Hostinger CDN/browser caches).
   // HTML pages must revalidate so they always reference current /_next/static assets.
   async headers() {
