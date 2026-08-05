@@ -53,7 +53,19 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
       </div>
 
       <div className="prose prose-neutral dark:prose-invert max-w-none text-base md:text-lg text-muted-foreground text-justify">
-        <p className="lead">{area.longDescription}</p>
+        {slug === "bioisosteric-replacement" ? (
+          area.longDescription
+            .split(/\n\s*\n/)
+            .map((para) => para.trim())
+            .filter(Boolean)
+            .map((para, index) => (
+              <p key={index} className={index === 0 ? "lead mb-4" : "mb-4 last:mb-0"}>
+                {para}
+              </p>
+            ))
+        ) : (
+          <p className="lead">{area.longDescription}</p>
+        )}
       </div>
 
       {area.keyApproaches && area.keyApproaches.length > 0 && (
@@ -76,51 +88,69 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
       {/* Bioisosteric replacement detailed content (after Key Approaches) */}
       {slug === "bioisosteric-replacement" && (
         <div className="mt-16 space-y-12">
-          <div className="prose prose-neutral dark:prose-invert max-w-none text-[15px] text-muted-foreground text-justify">
-            <p>
-              Our laboratory maintains a strong interest in fundamental aspects of medicinal chemistry, particularly the design of carboxylic acid bioisosteres. This line of research was initiated by Prof. Carlo Ballatore and focuses on identifying fluorine-containing motifs that can effectively replace the carboxylic acid functional group while modulating key physicochemical properties such as acidity (pKa), lipophilicity, and membrane permeability. In our <a href="https://doi.org/10.1016/j.bmcl.2023.129363" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">2023 Bioorganic &amp; Medicinal Chemistry Letters study</a>, we systematically evaluated a series of fluorinated alcohols and phenols as carboxylic acid surrogates using matched molecular pair analysis. This work provided clear structure–property relationships that help guide the rational selection of bioisosteres during lead optimization (see Figure 1).
-            </p>
-          </div>
-
-          {/* Figure 1: fluorinated isosteres */}
-          <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2">
-            <ZoomableImage
-              src="/images/research/bioisosteres/fluorinated-isosteres.png"
-              alt="Fluorinated isosteres as carboxylic acid bioisosteres"
-              className="rounded-2xl border border-border bg-card"
-              aspectClassName="aspect-video"
-            />
-            <div className="px-4 pt-3 pb-1 text-sm text-muted-foreground text-justify">
-              <p><strong>Figure 1.</strong> Design of new fluorinated carboxylic acid bioisosteres and Structure-property relationship study (acidity, lipophilicity, permeability)</p>
-              <p className="mt-1">
-                <a href="https://doi.org/10.1016/j.bmcl.2023.129363" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-xs">
-                  Bioorg. Med. Chem. Lett., 2023
-                </a>
+          {/* Section 1: Fluorinated carboxylic acid bioisosteres */}
+          <div>
+            <h2 className="text-3xl font-semibold tracking-tight text-foreground mb-6">
+              Fluorinated Carboxylic Acid Bioisosteres
+            </h2>
+            <div className="prose prose-neutral dark:prose-invert max-w-none text-[15px] text-muted-foreground text-justify">
+              <p className="mb-4">
+                Our laboratory maintains a strong interest in fundamental aspects of medicinal chemistry, particularly the design of carboxylic acid bioisosteres. This line of research was initiated by Prof. Carlo Ballatore and focuses on identifying fluorine-containing motifs that can effectively replace the carboxylic acid functional group while modulating key physicochemical properties such as acidity (pKa), lipophilicity, and membrane permeability.
               </p>
+              <p>
+                In our <a href="https://doi.org/10.1016/j.bmcl.2023.129363" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">2023 Bioorganic &amp; Medicinal Chemistry Letters study</a>, we systematically evaluated a series of fluorinated alcohols and phenols as carboxylic acid surrogates using matched molecular pair analysis. This work provided clear structure–property relationships that help guide the rational selection of bioisosteres during lead optimization (see Figure 1). These studies build on foundational contributions to the field, including comprehensive analyses of carboxylic acid (bio)isosteres in drug design and structure–property relationships of carboxylic acid isosteres.
+              </p>
+            </div>
+
+            {/* Figure 1: fluorinated isosteres */}
+            <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2">
+              <ZoomableImage
+                src="/images/research/bioisosteres/fluorinated-isosteres.png"
+                alt="Fluorinated isosteres as carboxylic acid bioisosteres"
+                className="rounded-2xl border border-border bg-card"
+                aspectClassName="aspect-video"
+              />
+              <div className="px-4 pt-3 pb-1 text-sm text-muted-foreground text-justify">
+                <p><strong>Figure 1.</strong> Design of new fluorinated carboxylic acid bioisosteres and Structure-property relationship study (acidity, lipophilicity, permeability)</p>
+                <p className="mt-1">
+                  <a href="https://doi.org/10.1016/j.bmcl.2023.129363" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-xs">
+                    Bioorg. Med. Chem. Lett., 2023
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="prose prose-neutral dark:prose-invert max-w-none text-[15px] text-muted-foreground text-justify">
-            <p>
-              Building on our expertise in property-driven compound design, we have also explored deuterium incorporation as a strategy to improve the metabolic stability and therapeutic profile of known bioactive molecules. In a recent study published in <a href="https://doi.org/10.1021/acsptsci.4c00738" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">ACS Pharmacology &amp; Translational Science (2025)</a>, we designed and evaluated deuterated cystamine derivatives with the initial goal of reducing the formation of noxious volatile sulfur metabolites responsible for the halitosis and body odor side effects associated with cysteamine. Unexpectedly, the deuterated analog d₄-cystamine not only improved metabolic stability but also demonstrated significantly enhanced anti-inflammatory and anti-fibrotic activity in a murine model of metabolic dysfunction-associated steatohepatitis (MASH). These findings suggest that strategic deuteration can unlock improved pharmacological properties beyond simple metabolic protection and support further development of this chemotype for liver diseases.
-            </p>
-          </div>
-
-          {/* Figure 2: cystamine bioisostere */}
-          <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2">
-            <ZoomableImage
-              src="/images/research/bioisosteres/cystamine-bioisostere.png"
-              alt="Cystamine bioisostere with deuterium incorporation"
-              className="rounded-2xl border border-border bg-card"
-              aspectClassName="aspect-video"
-            />
-            <div className="px-4 pt-3 pb-1 text-sm text-muted-foreground text-justify">
-              <p><strong>Figure 2.</strong> Deuterium dependent reduction of biomarkers of liver inflammation and fibrosis</p>
-              <p className="mt-1">
-                <a href="https://doi.org/10.1021/acsptsci.4c00738" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-xs">
-                  ACS Pharmacol. Transl. Sci., 2025
-                </a>
+          {/* Section 2: Deuterated cystamine */}
+          <div>
+            <h2 className="text-3xl font-semibold tracking-tight text-foreground mb-6">
+              Deuterated Cystamine Derivatives for Liver Disease
+            </h2>
+            <div className="prose prose-neutral dark:prose-invert max-w-none text-[15px] text-muted-foreground text-justify">
+              <p className="mb-4">
+                Building on our expertise in property-driven compound design, we have also explored deuterium incorporation as a strategy to improve the metabolic stability and therapeutic profile of known bioactive molecules. In a recent study published in <a href="https://doi.org/10.1021/acsptsci.4c00738" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">ACS Pharmacology &amp; Translational Science (2025)</a>, we designed and evaluated deuterated cystamine derivatives with the initial goal of reducing the formation of noxious volatile sulfur metabolites responsible for the halitosis and body odor side effects associated with cysteamine.
               </p>
+              <p>
+                Unexpectedly, the deuterated analog d₄-cystamine not only improved metabolic stability but also demonstrated significantly enhanced anti-inflammatory and anti-fibrotic activity in a murine model of metabolic dysfunction-associated steatohepatitis (MASH). These findings suggest that strategic deuteration can unlock improved pharmacological properties beyond simple metabolic protection and support further development of this chemotype for liver diseases (see Figure 2).
+              </p>
+            </div>
+
+            {/* Figure 2: cystamine bioisostere */}
+            <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2">
+              <ZoomableImage
+                src="/images/research/bioisosteres/cystamine-bioisostere.png"
+                alt="Cystamine bioisostere with deuterium incorporation"
+                className="rounded-2xl border border-border bg-card"
+                aspectClassName="aspect-video"
+              />
+              <div className="px-4 pt-3 pb-1 text-sm text-muted-foreground text-justify">
+                <p><strong>Figure 2.</strong> Deuterium dependent reduction of biomarkers of liver inflammation and fibrosis</p>
+                <p className="mt-1">
+                  <a href="https://doi.org/10.1021/acsptsci.4c00738" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-xs">
+                    ACS Pharmacol. Transl. Sci., 2025
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
 
@@ -129,16 +159,16 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
             <h4 className="font-semibold text-sm tracking-widest text-muted-foreground mb-4">KEY PUBLICATIONS</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-sm">
               <div>
-                <a href="https://doi.org/10.1016/j.bmcl.2023.129363" target="_blank" className="text-accent hover:underline font-medium">Alle et al.</a> — Structure–property relationships of fluorinated carboxylic acid bioisosteres. <span className="text-muted-foreground">Bioorg. Med. Chem. Lett., 2023</span>
+                <a href="https://doi.org/10.1016/j.bmcl.2023.129363" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Alle et al.</a> — Structure–property relationships of fluorinated carboxylic acid bioisosteres. <span className="text-muted-foreground">Bioorg. Med. Chem. Lett., 2023</span>
               </div>
               <div>
-                <a href="https://doi.org/10.1021/acsptsci.4c00738" target="_blank" className="text-accent hover:underline font-medium">Leszczynska et al.</a> — d₄-Cystamine: A Deuterated Cystamine Derivative with Improved Anti-Inflammatory and Anti-Fibrotic Activities... <span className="text-muted-foreground">ACS Pharmacol. Transl. Sci., 2025</span>
+                <a href="https://doi.org/10.1021/acsptsci.4c00738" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Leszczynska et al.</a> — d₄-Cystamine: A Deuterated Cystamine Derivative with Improved Anti-Inflammatory and Anti-Fibrotic Activities... <span className="text-muted-foreground">ACS Pharmacol. Transl. Sci., 2025</span>
               </div>
               <div>
-                <a href="https://doi.org/10.1002/cmdc.201200585" target="_blank" className="text-accent hover:underline font-medium">Ballatore et al.</a> — Carboxylic Acid (Bio)Isosteres in Drug Design. <span className="text-muted-foreground">ChemMedChem, 2013, 8, 385–395</span>
+                <a href="https://doi.org/10.1002/cmdc.201200585" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Ballatore et al.</a> — Carboxylic Acid (Bio)Isosteres in Drug Design. <span className="text-muted-foreground">ChemMedChem, 2013, 8, 385–395</span>
               </div>
               <div>
-                <a href="https://doi.org/10.1021/acs.jmedchem.5b01963" target="_blank" className="text-accent hover:underline font-medium">Lassalas et al.</a> — Structure–Property Relationships of Carboxylic Acid Isosteres. <span className="text-muted-foreground">J. Med. Chem., 2016, 59 (7), 3183–3203</span>
+                <a href="https://doi.org/10.1021/acs.jmedchem.5b01963" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-medium">Lassalas et al.</a> — Structure–Property Relationships of Carboxylic Acid Isosteres. <span className="text-muted-foreground">J. Med. Chem., 2016, 59 (7), 3183–3203</span>
               </div>
             </div>
           </div>
