@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import { Calendar, ChevronDown, ChevronUp } from "lucide-react";
+import { ZoomableImage } from "@/components/ui/ZoomableImage";
 
 const newsItems = [
   
@@ -108,13 +108,17 @@ export function News() {
                       {renderWithLinks(item.fullText)}
                     </p>
                     {item.image && (
-                      <div className="mt-4">
-                        <Image
+                      <div
+                        className="mt-4 max-w-[600px] mx-auto"
+                        onClick={(e) => e.stopPropagation()}
+                        onKeyDown={(e) => e.stopPropagation()}
+                      >
+                        <ZoomableImage
                           src={item.image}
                           alt="Alle et al. team photo, June 2026"
-                          width={800}
-                          height={450}
-                          className="rounded-lg border border-border max-w-[600px] w-full h-auto mx-auto"
+                          className="rounded-lg border border-border bg-card"
+                          aspectClassName="aspect-[16/10]"
+                          imageClassName="object-contain"
                         />
                       </div>
                     )}
