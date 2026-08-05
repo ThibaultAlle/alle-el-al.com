@@ -191,6 +191,49 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
             </div>
           </div>
 
+          {/* TPD Design */}
+          <div>
+            <h2 className="text-3xl font-semibold tracking-tight text-foreground mb-6">
+              Development of Triazolopyrimidine (TPD) MT-Stabilizers
+            </h2>
+
+            <div className="prose prose-neutral dark:prose-invert max-w-none text-[15px] text-muted-foreground text-justify mb-6">
+              <p className="mb-4">
+                We have focused on the 1,2,4-triazolo[1,5-a]pyrimidine (TPD) scaffold as a synthetically accessible,
+                brain-penetrant platform for microtubule stabilization. These compounds interact with the vinca site on
+                β-tubulin yet promote microtubule stabilization in cells — a mechanism distinct from classical taxane-site binders.
+              </p>
+              <p>
+                Extensive structure–activity relationship (SAR) studies systematically explored modifications at the C6 and C7
+                positions of the TPD core. These efforts, reported in
+                <a href="https://pubmed.ncbi.nlm.nih.gov/33411523/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline"> Oukoloff et al., J. Med. Chem. 2021</a>
+                and further refined through matched molecular pair analyses and computational studies
+                (<a href="https://pubmed.ncbi.nlm.nih.gov/36537765/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">Alle et al., J. Med. Chem. 2022</a>),
+                enabled the identification of TPDs with favorable drug-like properties, potent microtubule-stabilizing activity,
+                good brain exposure, and oral bioavailability.
+              </p>
+            </div>
+
+            <div className="bg-muted/30 border border-border rounded-2xl p-2 max-md:p-1">
+              <ZoomableImage
+                src="/images/research/MT-stabilizers/SAR_summary.png"
+                alt="SAR Summary: Comparison of selected compounds"
+                className="bg-card rounded-xl border border-border"
+                aspectClassName="aspect-video max-md:aspect-[4/3]"
+              />
+              <div className="px-4 pt-3 pb-1 text-sm text-muted-foreground text-justify">
+                <p>
+                  <strong>Figure 2.</strong> Comparison of selected compounds based on experimental log D7.4 values (triangles) and MT-stabilizing activity (squares) expressed as the average activity in the AcTub assay at 1 and 10 μM normalized to positive control (i.e., 100 nM 5). log D7.4 values were determined via the shake flask method (experiments run by Analiza, Inc.).
+                </p>
+                <p className="mt-1">
+                  <a href="https://pubmed.ncbi.nlm.nih.gov/33411523/" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-xs">
+                    Oukoloff et al., J. Med. Chem., 2021
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* CNDR-51997 */}
           <div>
             <h2 className="text-3xl font-semibold tracking-tight text-foreground mb-6">CNDR-51997: An Optimized Brain-Penetrant Candidate</h2>
