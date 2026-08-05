@@ -5,7 +5,7 @@ This folder is for the background video used in the Hero section of the homepage
 ## Recommended Location
 
 Place your video here:
-
+ 
 ```
 public/videos/lab-hero.mp4
 ```
