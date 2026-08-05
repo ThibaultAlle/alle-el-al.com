@@ -53,19 +53,15 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
       </div>
 
       <div className="prose prose-neutral dark:prose-invert max-w-none text-base md:text-lg text-muted-foreground text-justify">
-        {slug === "bioisosteric-replacement" ? (
-          area.longDescription
-            .split(/\n\s*\n/)
-            .map((para) => para.trim())
-            .filter(Boolean)
-            .map((para, index) => (
-              <p key={index} className={index === 0 ? "lead mb-4" : "mb-4 last:mb-0"}>
-                {para}
-              </p>
-            ))
-        ) : (
-          <p className="lead">{area.longDescription}</p>
-        )}
+        {area.longDescription
+          .split(/\n\s*\n/)
+          .map((para) => para.trim())
+          .filter(Boolean)
+          .map((para, index) => (
+            <p key={index} className={index === 0 ? "lead mb-4" : "mb-4 last:mb-0"}>
+              {para}
+            </p>
+          ))}
       </div>
 
       {area.keyApproaches && area.keyApproaches.length > 0 && (
