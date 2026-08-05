@@ -36,20 +36,25 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-[100dvh] flex items-center justify-center pt-16 overflow-hidden bg-background">
-      {/* Background Video */}
-      <div className="absolute inset-0 w-full h-full object-cover object-center max-md:object-[center_25%]"
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          onLoadedMetadata={(e) => {
-            e.currentTarget.currentTime = 0;
-          }}
-          className="absolute inset-0 w-full h-full object-cover"
+  <section id="hero" className="relative min-h-[100dvh] flex items-center justify-center pt-16 overflow-hidden bg-background">
+    {/* Background Video */}
+    <div className="absolute inset-0">
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        onLoadedMetadata={(e) => {
+          e.currentTarget.currentTime = 0;
+        }}
+        className="absolute inset-0 w-full h-full object-cover object-center max-md:object-[center_25%]"
+        poster="/images/hero-poster.jpg"
+      >
+        <source src="/videos/Hero_video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
           poster="/images/hero-poster.jpg"
         >
           <source src="/videos/Hero_video.mp4" type="video/mp4" />
