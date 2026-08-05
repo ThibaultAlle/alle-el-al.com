@@ -28,7 +28,6 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
         ← Back to Research Areas
       </Link>
 
-      {/* Optional Hero Image */}
       {area.image && (
         <div
           className="relative w-full rounded-2xl overflow-hidden mb-10 border border-border bg-card"
@@ -92,7 +91,6 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
             </p>
           </div>
 
-          {/* Figure 1: fluorinated isosteres */}
           <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2">
             <ZoomableImage
               src="/images/research/bioisosteres/fluorinated-isosteres.png"
@@ -124,20 +122,10 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
               Building on our expertise in property-driven compound design, we
               have also explored deuterium incorporation as a strategy to
               improve the metabolic stability and therapeutic profile of known
-              bioactive molecules. In a recent study published in{" "}
-              <a
-                href="https://doi.org/10.1021/acsptsci.4c00738"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent hover:underline"
-              >
-                ACS Pharmacology & Translational Science (2025)
-              </a>
-              , we designed and evaluated deuterated cystamine derivatives.
+              bioactive molecules.
             </p>
           </div>
 
-          {/* Figure 2: cystamine bioisostere */}
           <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2">
             <ZoomableImage
               src="/images/research/bioisosteres/cystamine-bioisostere.png"
@@ -162,49 +150,12 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
               </p>
             </div>
           </div>
-
-          {/* Key Publications */}
-          <div className="pt-8 border-t border-border">
-            <h4 className="font-semibold text-sm tracking-widest text-muted-foreground mb-4">
-              KEY PUBLICATIONS
-            </h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-sm">
-              <div>
-                <a
-                  href="https://doi.org/10.1016/j.bmcl.2023.129363"
-                  target="_blank"
-                  className="text-accent hover:underline font-medium"
-                >
-                  Alle et al.
-                </a>{" "}
-                — Structure–property relationships of fluorinated carboxylic
-                acid bioisosteres.{" "}
-                <span className="text-muted-foreground">
-                  Bioorg. Med. Chem. Lett., 2023
-                </span>
-              </div>
-              <div>
-                <a
-                  href="https://doi.org/10.1021/acsptsci.4c00738"
-                  target="_blank"
-                  className="text-accent hover:underline font-medium"
-                >
-                  Leszczynska et al.
-                </a>{" "}
-                — d₄-Cystamine: A Deuterated Cystamine Derivative...{" "}
-                <span className="text-muted-foreground">
-                  ACS Pharmacol. Transl. Sci., 2025
-                </span>
-              </div>
-            </div>
-          </div>
         </div>
       )}
 
       {/* ========== MT-STABILIZERS ========== */}
       {slug === "microtubule-modulating-triazolopyrimidines" && (
         <div className="mt-16 space-y-12">
-          {/* Rationale + Fig 1 */}
           <div>
             <h2 className="text-3xl font-semibold tracking-tight text-foreground mb-6">
               Why Microtubule Stabilization for Tauopathies?
@@ -214,51 +165,32 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
                 Neurodegenerative tauopathies, including Alzheimer’s disease
                 (AD) and frontotemporal lobar degeneration, are characterized by
                 the accumulation of hyperphosphorylated tau protein that
-                detaches from microtubules. This loss of tau’s normal
-                microtubule-stabilizing function disrupts axonal transport,
-                promotes axonal dystrophy, and contributes to synaptic
-                dysfunction and neuronal death.
+                detaches from microtubules.
               </p>
               <p>
-                While recent Aβ immunotherapies have advanced the field, there
-                remains a critical need for therapies that directly address tau
-                pathology and microtubule dysfunction. The concept of{" "}
-                <strong>microtubule stabilization</strong> as a therapeutic
-                strategy for tauopathies was pioneered approximately 15 years
-                ago by Professors Carlo Ballatore, Kurt Brunden, Virginia Lee,
-                and the late John Trojanowski. Our laboratory continues to build
-                on this foundation, developing brain-penetrant
-                microtubule-stabilizing agents to compensate for the loss of
-                endogenous tau function and restore neuronal integrity.
+                The concept of <strong>microtubule stabilization</strong> as a
+                therapeutic strategy for tauopathies was pioneered approximately
+                15 years ago by Professors Carlo Ballatore, Kurt Brunden,
+                Virginia Lee, and the late John Trojanowski. Our laboratory
+                continues to build on this foundation.
               </p>
             </div>
 
-            {/* CTMC Figure 1 */}
-<div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2 max-md:p-1">
-  <ZoomableImage
-    src="/images/research/MT-stabilizers/ctmc-graphical-abstract.png"
-    alt="CTMC Graphical Abstract for Microtubule Stabilization"
-    className="rounded-2xl border border-border bg-card"
-    aspectClassName="aspect-video max-md:aspect-[4/3]"
-    unoptimized={true}
-  />
-  <div className="px-4 pt-3 pb-1 text-sm text-muted-foreground text-justify">
-    <p>
-      <strong>Figure 1.</strong> Different mode of action between taxane site
-      binding MT-stabilizers (Epothilone D, TPI-287) and TPDs
-    </p>
-    <p className="mt-1">
-      <a
-        href="https://www.benthamscience.com/article/156309"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-accent hover:underline text-xs"
-      >
-        Yohannan, Brunden & Alle, Current Topics in Medicinal Chemistry, 2026
-      </a>
-    </p>
-  </div>
-</div>
+            {/* CTMC Fig 1 - with unoptimized to allow zoom */}
+            <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2 max-md:p-1">
+              <ZoomableImage
+                src="/images/research/MT-stabilizers/ctmc-graphical-abstract.png"
+                alt="CTMC Graphical Abstract for Microtubule Stabilization"
+                className="rounded-2xl border border-border bg-card"
+                aspectClassName="aspect-video max-md:aspect-[4/3]"
+                unoptimized={true}
+              />
+              <div className="px-4 pt-3 pb-1 text-sm text-muted-foreground text-justify">
+                <p>
+                  <strong>Figure 1.</strong> Different mode of action between
+                  taxane site binding MT-stabilizers (Epothilone D, TPI-287) and
+                  TPDs
+                </p>
                 <p className="mt-1">
                   <a
                     href="https://www.benthamscience.com/article/156309"
@@ -274,20 +206,10 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
             </div>
           </div>
 
-          {/* CNDR-51997 */}
           <div>
             <h2 className="text-3xl font-semibold tracking-tight text-foreground mb-6">
               CNDR-51997: An Optimized Brain-Penetrant Candidate
             </h2>
-            <div className="prose prose-neutral dark:prose-invert max-w-none text-[15px] text-muted-foreground text-justify">
-              <p className="mb-4">
-                Building on the TPD platform, we identified and extensively
-                characterized <strong>CNDR-51997</strong>, an optimized
-                microtubule-stabilizing candidate with excellent brain
-                penetration and a favorable safety profile.
-              </p>
-            </div>
-
             <div className="mt-6 bg-muted/30 border border-border rounded-2xl p-2 max-md:p-1">
               <ZoomableImage
                 src="/images/research/MT-stabilizers/CNDR-51997-cropped.png"
@@ -295,60 +217,6 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
                 className="bg-card rounded-xl border border-border"
                 aspectClassName="aspect-video max-md:aspect-[4/3]"
               />
-              <div className="px-4 pt-3 pb-1 text-sm text-muted-foreground text-justify">
-                <p>
-                  <strong>Figure 3.</strong> CNDR-51997 increased the stable
-                  microtubule marker acetylated-tubulin in cells and primary
-                  neurons.
-                </p>
-                <p className="mt-1">
-                  <a
-                    href="https://pubmed.ncbi.nlm.nih.gov/38884283/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-accent hover:underline text-xs"
-                  >
-                    Yao et al., Alzheimer’s & Dementia, 2024
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Key Publications */}
-          <div className="pt-8 border-t border-border">
-            <h4 className="font-semibold text-sm tracking-widest text-muted-foreground mb-4">
-              KEY PUBLICATIONS
-            </h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 text-sm">
-              <div>
-                <a
-                  href="https://pubmed.ncbi.nlm.nih.gov/38884283/"
-                  target="_blank"
-                  className="text-accent hover:underline font-medium"
-                >
-                  Yao et al.
-                </a>{" "}
-                — A small-molecule microtubule-stabilizing agent safely reduces
-                Aβ plaque and tau pathology...{" "}
-                <span className="text-muted-foreground">
-                  Alzheimer’s & Dementia, 2024
-                </span>
-              </div>
-              <div>
-                <a
-                  href="https://pubmed.ncbi.nlm.nih.gov/33411523/"
-                  target="_blank"
-                  className="text-accent hover:underline font-medium"
-                >
-                  Oukoloff et al.
-                </a>{" "}
-                — Evaluation of the Structure–Activity Relationship of
-                Microtubule-Targeting 1,2,4-Triazolo[1,5-α]pyrimidines.{" "}
-                <span className="text-muted-foreground">
-                  J. Med. Chem., 2021
-                </span>
-              </div>
             </div>
           </div>
         </div>
