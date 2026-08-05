@@ -10,7 +10,7 @@ Current team (9):
 - elena-vargas.jpg
 - priya-patel.jpg
 - marcus-chen.jpg
-- aisha-okoro.jpg
+- aisha-okoro.jpg 
 - sofia-ramirez.jpg
 - liam-thompson.jpg
 - mei-lin.jpg
