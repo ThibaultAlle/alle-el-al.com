@@ -233,19 +233,32 @@ export default async function ResearchAreaPage({ params }: ResearchPageProps) {
               </p>
             </div>
 
-            {/* CTMC Figure 1 - regular img to avoid Invalid source image */}
-            <div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2 max-md:p-1">
-              <img
-                src="/images/research/MT-stabilizers/ctmc-graphical-abstract.png"
-                alt="CTMC Graphical Abstract for Microtubule Stabilization"
-                className="w-full rounded-2xl border border-border bg-card"
-              />
-              <div className="px-4 pt-3 pb-1 text-sm text-muted-foreground text-justify">
-                <p>
-                  <strong>Figure 1.</strong> Different mode of action between
-                  taxane site binding MT-stabilizers (Epothilone D, TPI-287) and
-                  TPDs
-                </p>
+            {/* CTMC Figure 1 */}
+<div className="mt-8 bg-muted/30 border border-border rounded-2xl p-2 max-md:p-1">
+  <ZoomableImage
+    src="/images/research/MT-stabilizers/ctmc-graphical-abstract.png"
+    alt="CTMC Graphical Abstract for Microtubule Stabilization"
+    className="rounded-2xl border border-border bg-card"
+    aspectClassName="aspect-video max-md:aspect-[4/3]"
+    unoptimized={true}
+  />
+  <div className="px-4 pt-3 pb-1 text-sm text-muted-foreground text-justify">
+    <p>
+      <strong>Figure 1.</strong> Different mode of action between taxane site
+      binding MT-stabilizers (Epothilone D, TPI-287) and TPDs
+    </p>
+    <p className="mt-1">
+      <a
+        href="https://www.benthamscience.com/article/156309"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-accent hover:underline text-xs"
+      >
+        Yohannan, Brunden & Alle, Current Topics in Medicinal Chemistry, 2026
+      </a>
+    </p>
+  </div>
+</div>
                 <p className="mt-1">
                   <a
                     href="https://www.benthamscience.com/article/156309"

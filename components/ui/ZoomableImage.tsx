@@ -9,22 +9,17 @@ import { cn } from "@/lib/utils";
 interface ZoomableImageProps {
   src: string;
   alt: string;
-  /** Classes for the clickable thumbnail container (position/size/borders). */
   className?: string;
-  /** Classes for the thumbnail Image (e.g. object-contain). */
   imageClassName?: string;
-  /** Aspect ratio classes for the thumbnail, e.g. "aspect-video max-md:aspect-[4/3]". */
   aspectClassName?: string;
   sizes?: string;
   priority?: boolean;
+  /** Skip Next.js image optimization (use for files that return "Invalid source image") */
+  unoptimized?: boolean;
 }
 
 const ZOOM_LEVELS = [1, 1.5, 2, 3] as const;
 
-/**
- * Research figure thumbnail that opens a full-screen lightbox on click/tap.
- * Mobile-friendly: full viewport overlay, pan when zoomed, Escape/backdrop/X to close.
- */
 export function ZoomableImage({
   src,
   alt,
@@ -33,6 +28,7 @@ export function ZoomableImage({
   aspectClassName = "aspect-video",
   sizes = "(max-width: 768px) 100vw, 896px",
   priority = false,
+  unoptimized = false,
 }: ZoomableImageProps) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -96,7 +92,6 @@ export function ZoomableImage({
               {alt}
             </span>
 
-            {/* Top bar */}
             <div className="flex shrink-0 items-center justify-between gap-2 px-2 py-2 sm:px-4 sm:py-3">
               <p className="text-xs sm:text-sm text-white/70 truncate min-w-0 flex-1 pr-2">
                 {alt}
@@ -135,7 +130,6 @@ export function ZoomableImage({
               </div>
             </div>
 
-            {/* Image area — scrollable for pan when zoomed */}
             <div
               className="flex-1 min-h-0 overflow-auto overscroll-contain"
               onClick={close}
@@ -146,7 +140,6 @@ export function ZoomableImage({
                   zoom === 1 ? "items-center justify-center" : "items-start justify-start"
                 )}
               >
-                {/* Native img for full resolution; scale controlled by zoom buttons */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={src}
@@ -191,14 +184,24 @@ export function ZoomableImage({
         )}
         aria-label={`View full size: ${alt}`}
       >
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          priority={priority}
-          sizes={sizes}
-          className={cn(imageClassName)}
-        />
+        {unoptimized ? (
+          // Native img for files that break Next.js optimizer
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={src}
+            alt={alt}
+            className={cn("absolute inset-0 w-full h-full", imageClassName)}
+          />
+        ) : (
+          <Image
+            src={src}
+            alt={alt}
+            fill
+            priority={priority}
+            sizes={sizes}
+            className={cn(imageClassName)}
+          />
+        )}
         <span
           className={cn(
             "pointer-events-none absolute bottom-2 right-2 sm:bottom-3 sm:right-3",
