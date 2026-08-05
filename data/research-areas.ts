@@ -37,7 +37,7 @@ We apply this versatile chemical platform to develop brain-penetrant therapeutic
     title: "Optimizing Physicochemical Properties Through Bioisosteric Replacement",
     shortDescription: "Our group conducts fundamental studies in bioisosteric design aimed at optimizing the physicochemical and pharmacokinetic properties of drug-like molecules. Through systematic evaluation of matched molecular pairs, we investigate how strategic structural replacements—such as fluorinated alcohols and phenols as carboxylic acid surrogates—influence key parameters including acidity, lipophilicity, and membrane permeability. These foundational insights are then applied to address practical limitations of existing compounds, as demonstrated by our development of deuterated cystamine derivatives. These analogs retain the beneficial anti-inflammatory and anti-fibrotic activities of the parent molecule while markedly reducing the formation of noxious volatile metabolites responsible for halitosis and body odor in the context of metabolic liver disease.",
     icon: Beaker,
-    image: "/images/research/bioisosteres.png",
+    image: "/images/research/bioisosteres/bioisosteres.png",
     imageAspect: "16/9",
     imageFit: "contain",
     longDescription: `Our group conducts fundamental studies in bioisosteric design aimed at optimizing the physicochemical and pharmacokinetic properties of drug-like molecules. Through systematic evaluation of matched molecular pairs, we investigate how strategic structural replacements—such as fluorinated alcohols and phenols as carboxylic acid surrogates—influence key parameters including acidity, lipophilicity, and membrane permeability.
