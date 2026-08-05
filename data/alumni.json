@@ -1,0 +1,32 @@
+[
+  {
+    "id": "alumni1",
+    "name": "Michele Renzulli",
+    "role": "Former Visiting Master student from Università degli Studi di Urbino Carlo Bo",
+    "years": "2025",
+    "current": "Now: Research intern at Helmholtz Institute for Pharmaceutical Research Saarland (HIPS)",
+    "bio": "Designed new phenylpyrimidines for application in schistosomiasis",
+    "image": "/team/Michele.jpeg",
+    "linkedin": "https://www.linkedin.com/in/michele-renzulli/"
+  },
+  {
+    "id": "alumni2",
+    "name": "Dr. Žaneta Javorská",
+    "role": "Former visiting PhD candidate from University of Prague",
+    "years": "2025",
+    "current": "Now: Postdoctoral Scholar, University of Prague",
+    "bio": "Designed new TPDs for application in schistosomiasis and glioblastoma",
+    "image": "/team/zaneta.png",
+    "linkedin": "https://www.linkedin.com/in/%C5%BEaneta-javorsk%C3%A1-554154324/?locale=en"
+  },
+  {
+    "id": "alumni",
+    "name": "Jorge Jacinto",
+    "role": "Former PhD candidate",
+    "years": "2024-2026",
+    "current": "Now: PhD candidate, Prof. Jinich lab, UCSD",
+    "bio": "Designed new anti Negleria agents",
+    "image": "/team/Jorge.jpeg",
+    "linkedin": "https://www.linkedin.com/in/jorge-jacinto-b419ba140/"
+  }
+]

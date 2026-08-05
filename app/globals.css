@@ -1,0 +1,219 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Refined professional academic palette — excellent light mode + strong dark mode */
+  --background: 0 0% 98.5%;
+  --foreground: 222 18% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 18% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 18% 11%;
+  --primary: 215 32% 20%; /* Deep, rich navy */
+  --primary-foreground: 0 0% 98%;
+  --secondary: 215 14% 94%;
+  --secondary-foreground: 222 18% 11%;
+  --muted: 215 12% 95.5%;
+  --muted-foreground: 215 10% 42%;
+  --accent: 175 42% 32%; /* Sophisticated teal accent */
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 68% 50%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 215 14% 89%;
+  --input: 215 14% 89%;
+  --ring: 215 32% 20%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 222 18% 5.5%;
+  --foreground: 0 0% 95.5%;
+  --card: 222 16% 8.5%;
+  --card-foreground: 0 0% 95.5%;
+  --popover: 222 16% 8.5%;
+  --popover-foreground: 0 0% 95.5%;
+  --primary: 215 26% 68%;
+  --primary-foreground: 222 18% 5.5%;
+  --secondary: 215 10% 14%;
+  --secondary-foreground: 0 0% 95.5%;
+  --muted: 215 10% 12.5%;
+  --muted-foreground: 215 10% 62%;
+  --accent: 175 38% 50%;
+  --accent-foreground: 222 18% 5.5%;
+  --destructive: 0 62% 58%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 215 10% 16%;
+  --input: 215 10% 16%;
+  --ring: 215 26% 68%;
+  /* Alternate dark tone for section bands (e.g. news + publications) */
+  --background-alt: 215 14% 7.5%;
+}
+
+/* Professional academic typography and spacing */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-feature-settings: "kern" 1, "tnum" 1, "cv03" 1, "cv04" 1;
+  }
+
+  h1, h2, h3, h4 {
+    font-feature-settings: "kern" 1, "tnum" 0, "cv03" 1, "cv04" 1;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  /* Lots of breathing room - generous line heights */
+  p {
+    line-height: 1.75;
+  }
+}
+
+/* Subtle, tasteful animations */
+@layer components {
+  .section-heading {
+    position: relative;
+    display: inline-block;
+  }
+
+  .section-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(to right, hsl(var(--accent)), hsl(var(--primary)));
+    border-radius: 2px;
+  }
+
+  .nav-link {
+    position: relative;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: hsl(var(--accent));
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: hsl(var(--accent));
+    transition: width 0.25s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Publication card hover - subtle lift */
+  .publication-card {
+    transition: transform 0.2s cubic-bezier(0.23, 1.0, 0.32, 1), 
+                box-shadow 0.2s cubic-bezier(0.23, 1.0, 0.32, 1),
+                border-color 0.2s ease;
+  }
+
+  .publication-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
+  }
+
+  .dark .publication-card:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.2);
+  }
+
+  /* Team member card */
+  .person-card {
+    transition: transform 0.25s cubic-bezier(0.23, 1.0, 0.32, 1), 
+                box-shadow 0.25s cubic-bezier(0.23, 1.0, 0.32, 1);
+  }
+
+  .person-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.06), 0 4px 6px -4px rgb(0 0 0 / 0.06);
+  }
+
+  .dark .person-card:hover {
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.25), 0 4px 6px -4px rgb(0 0 0 / 0.25);
+  }
+
+  /* Research area cards */
+  .research-card {
+    transition: all 0.3s cubic-bezier(0.23, 1.0, 0.32, 1);
+  }
+
+  .research-card:hover {
+    border-color: hsl(var(--accent));
+  }
+
+  /* Smooth search input */
+  .search-input {
+    transition: all 0.2s ease;
+  }
+
+  .search-input:focus {
+    border-color: hsl(var(--accent));
+    box-shadow: 0 0 0 3px hsl(var(--accent) / 0.1);
+  }
+
+  /* News item subtle style */
+  .news-item {
+    transition: all 0.2s ease;
+  }
+
+  /* Alumni cards – slightly more restrained than current team cards */
+  .alumni-card {
+    transition: all 0.2s cubic-bezier(0.23, 1.0, 0.32, 1);
+  }
+}
+
+/* Accessibility: focus states */
+@layer utilities {
+  .focus-visible-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  /* Generous whitespace helper */
+  .prose-academic {
+    max-width: 72ch;
+  }
+}
+
+/* Video placeholder styling */
+.video-placeholder {
+  background: linear-gradient(135deg, hsl(var(--muted)) 0%, hsl(var(--background)) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.video-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, hsl(var(--accent) / 0.06) 0%, transparent 70%);
+}
+
+/* Responsive typography scaling */
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.75rem;
+    line-height: 1.1;
+  }
+}
+
+/* Full-width section band backgrounds for home page visual test */
+.bg-section-alt {
+  background-color: hsl(var(--background-alt));
+}
+/* Justify all body text */
+p, article, .prose {
+  text-align: justify;
+}
