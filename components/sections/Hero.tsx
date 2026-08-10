@@ -5,33 +5,51 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, Play } from "lucide-react";
 
-export function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+const DESKTOP_VIDEO = "/videos/Hero_video.mp4";
+// Cache-buster so browsers don't keep an older hero file
+const MOBILE_VIDEO = "/videos/hero_mobile_cut3.mp4?v=3";
 
-  // Ensure video starts playing (autoPlay can be blocked in some cases)
+function playVideo(video: HTMLVideoElement | null) {
+  if (!video) return;
+  const playPromise = video.play();
+  if (playPromise !== undefined) {
+    playPromise.catch((error) => {
+      console.warn("Video autoplay prevented:", error);
+    });
+  }
+}
+
+export function Hero() {
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
+  const desktopVideoRef = useRef<HTMLVideoElement>(null);
+
+  // Ensure whichever video is active starts playing
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    const mobile = mobileVideoRef.current;
+    const desktop = desktopVideoRef.current;
 
     const attemptPlay = () => {
-      const playPromise = video.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          // Autoplay was prevented by browser policy
-          console.warn("Video autoplay prevented:", error);
-        });
-      }
+      const isMobile = window.matchMedia("(max-width: 767px)").matches;
+      playVideo(isMobile ? mobile : desktop);
     };
 
-    // Try to play as soon as possible
-    if (video.readyState >= 3) {
-      attemptPlay();
-    } else {
-      video.addEventListener("canplay", attemptPlay, { once: true });
+    const onCanPlay = () => attemptPlay();
+
+    if (mobile) {
+      if (mobile.readyState >= 3) attemptPlay();
+      else mobile.addEventListener("canplay", onCanPlay, { once: true });
+    }
+    if (desktop) {
+      if (desktop.readyState >= 3) attemptPlay();
+      else desktop.addEventListener("canplay", onCanPlay, { once: true });
     }
 
+    // Also try immediately (covers already-loaded cases)
+    attemptPlay();
+
     return () => {
-      video.removeEventListener("canplay", attemptPlay);
+      mobile?.removeEventListener("canplay", onCanPlay);
+      desktop?.removeEventListener("canplay", onCanPlay);
     };
   }, []);
 
@@ -40,10 +58,12 @@ export function Hero() {
       id="hero"
       className="relative min-h-[100dvh] flex items-center justify-center pt-16 overflow-hidden bg-background"
     >
-      {/* Background Video */}
+      {/* Background Video — separate elements so mobile never loads the desktop file */}
       <div className="absolute inset-0">
+        {/* Mobile only */}
         <video
-          ref={videoRef}
+          ref={mobileVideoRef}
+          src={MOBILE_VIDEO}
           autoPlay
           loop
           muted
@@ -52,12 +72,24 @@ export function Hero() {
           onLoadedMetadata={(e) => {
             e.currentTarget.currentTime = 0;
           }}
-          className="absolute inset-0 w-full h-full object-cover object-center max-md:object-[center_25%]"
+          className="absolute inset-0 w-full h-full object-cover object-center object-[center_25%] md:hidden"
           poster="/images/hero-poster.jpg"
-        >
-          <source src="/videos/Hero_video.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        />
+        {/* Desktop only */}
+        <video
+          ref={desktopVideoRef}
+          src={DESKTOP_VIDEO}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          onLoadedMetadata={(e) => {
+            e.currentTarget.currentTime = 0;
+          }}
+          className="absolute inset-0 hidden h-full w-full object-cover object-center md:block"
+          poster="/images/hero-poster.jpg"
+        />
 
         {/* Elegant gradient + subtle pattern overlay for clean academic look */}
         <div className="absolute inset-0 bg-[radial-gradient(#00000008_0.8px,transparent_1px)] bg-[length:4px_4px] dark:bg-[radial-gradient(#ffffff0a_0.8px,transparent_1px)]" />
