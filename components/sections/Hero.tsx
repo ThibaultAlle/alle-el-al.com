@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, Play } from "lucide-react";
 
-const DESKTOP_VIDEO = "/videos/Hero_video.mp4";
+const DESKTOP_VIDEO = "/videos/Hero_video_fade.mp4";
 // Cache-buster so browsers don't keep an older hero file
 const MOBILE_VIDEO = "/videos/hero_mobile_cut3.mp4?v=3";
 
