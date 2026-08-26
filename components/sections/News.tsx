@@ -28,7 +28,7 @@ const newsItems: NewsItem[] = [
     fullText:
       "On August 10th, Darius successfully defended his Ph.D. thesis before his committee. His talk, covering the design of inhibitors of protein/RNA binding and anti-schistosomal compounds, was warmly received by a large audience. We are proud of this milestone and of the science he advanced along the way.",
     image: [
-      "/images/darius_defense_1.jpg",
+      "/images/darius_defense_1_cropped.jpg",
       "/images/darius_defense_2.jpg",
       "/images/darius_defense_3_cropped.JPG",
     ],
