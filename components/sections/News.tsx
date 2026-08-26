@@ -30,7 +30,7 @@ const newsItems: NewsItem[] = [
     image: [
       "/images/darius_defense_1.jpg",
       "/images/darius_defense_2.jpg",
-      "/images/darius_defense_3.jpg",
+      "/images/darius_defense_3_cropped.JPG",
     ],
     imageAlt: "Darius J. Yohannan Ph.D. defense, August 2026",
     imageLayout: "top-1-3-bottom-2",
