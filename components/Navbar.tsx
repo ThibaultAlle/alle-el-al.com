@@ -4,8 +4,11 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Beaker, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+
+const VAULT_URL =
+  process.env.NEXT_PUBLIC_VAULT_URL || "https://vault.alle-et-al.com";
 
 const navLinks = [
   { label: "Research", href: "#research" },
@@ -110,6 +113,17 @@ export function Navbar() {
                 </Link>
               )
             ))}
+            {/* Internal compound vault — password-gated for members/collaborators */}
+            <a
+              href={VAULT_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Compound Vault (members)"
+              aria-label="Compound Vault — members and collaborators"
+              className="inline-flex items-center justify-center h-9 w-9 rounded-lg text-teal-400 hover:text-teal-300 hover:bg-teal-400/10 transition-colors"
+            >
+              <Beaker className="h-5 w-5" strokeWidth={2.25} />
+            </a>
           </div>
 
           <div className="flex items-center gap-3">
@@ -176,6 +190,17 @@ export function Navbar() {
             ))}
 
             <div className="pt-4 flex flex-col gap-3 border-t border-border/60 mt-2">
+              <a
+                href={VAULT_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="inline-flex items-center gap-2 py-1.5 text-teal-400 hover:text-teal-300 transition-colors font-medium"
+              >
+                <Beaker className="h-5 w-5" strokeWidth={2.25} />
+                Compound Vault
+              </a>
+
               <Button variant="outline" size="default" asChild>
                 <a href="mailto:talle@health.ucsd.edu">Contact the Lab</a>
               </Button>
