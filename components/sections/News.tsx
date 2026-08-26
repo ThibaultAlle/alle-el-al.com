@@ -154,28 +154,30 @@ export function News() {
                         Array.isArray(item.image) &&
                         item.image.length >= 3 ? (
                           <div className="mx-auto flex max-w-3xl flex-col gap-4">
+                            {/* Portraits 1 & 3 on top */}
                             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                               <ZoomableImage
                                 src={item.image[0]}
                                 alt={`${item.imageAlt || item.title} (1)`}
                                 className="rounded-lg border border-border bg-card"
-                                aspectClassName="aspect-[16/10]"
-                                imageClassName="object-contain"
+                                aspectClassName="aspect-[4/5]"
+                                imageClassName="object-cover object-center"
                               />
                               <ZoomableImage
                                 src={item.image[2]}
                                 alt={`${item.imageAlt || item.title} (3)`}
                                 className="rounded-lg border border-border bg-card"
-                                aspectClassName="aspect-[16/10]"
-                                imageClassName="object-contain"
+                                aspectClassName="aspect-[4/5]"
+                                imageClassName="object-cover object-center"
                               />
                             </div>
+                            {/* Larger landscape photo 2 below */}
                             <ZoomableImage
                               src={item.image[1]}
                               alt={`${item.imageAlt || item.title} (2)`}
                               className="mx-auto w-full max-w-2xl rounded-lg border border-border bg-card"
-                              aspectClassName="aspect-[16/10] md:aspect-[21/11]"
-                              imageClassName="object-contain"
+                              aspectClassName="aspect-[16/10]"
+                              imageClassName="object-cover object-center"
                             />
                           </div>
                         ) : (
