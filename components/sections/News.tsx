@@ -4,26 +4,57 @@ import React, { useState } from "react";
 import { Calendar, ChevronDown, ChevronUp } from "lucide-react";
 import { ZoomableImage } from "@/components/ui/ZoomableImage";
 
-const newsItems = [
-  
+type NewsItem = {
+  date: string;
+  title: string;
+  summary: string;
+  fullText?: string;
+  /** One path or several — use /images/... (files live in public/images) */
+  image?: string | string[];
+  imageAlt?: string;
+};
+
+const newsItems: NewsItem[] = [
+  {
+    date: "August 2026",
+    title: "A New Doctor",
+    summary:
+      "Congratulations to Darius J. Yohannan on a successful Ph.D. defense after five years of focused and dedicated work.",
+    fullText:
+      "On August 10th, Darius successfully defended his Ph.D. thesis before his committee. His talk, covering the design of inhibitors of protein/RNA binding and anti-schistosomal compounds, was warmly received by a large audience. We are proud of this milestone and of the science he advanced along the way.",
+    image: [
+      "/images/darius_defense_1.jpg",
+      "/images/darius_defense_2.jpg",
+      "/images/darius_defense_3.jpg",
+    ],
+    imageAlt: "Darius J. Yohannan Ph.D. defense, August 2026",
+  },
   {
     date: "June 2026",
-    title: "Editorial Accepted: Microtubule Stabilization as a Therapeutic Strategy for Alzheimer’s Disease and Tauopathies",
-    summary: "The editorial co-authored by Darius J. Yohannan, Kurt R. Brunden, and Thibault Alle on microtubule stabilization as a therapeutic approach for Alzheimer’s disease and neurodegenerative tauopathies has been accepted for publication in *Current Topics in Medicinal Chemistry*.",
-    fullText: "We are pleased to announce that our editorial, “Microtubule Stabilization as a Therapeutic Strategy: Updated Perspectives on Alzheimer’s Disease and Neurodegenerative Tauopathies,” has been accepted for publication in *Current Topics in Medicinal Chemistry*. This invited piece provides an updated perspective on the therapeutic potential of microtubule-stabilizing agents for tauopathies, including Alzheimer’s disease, highlighting key preclinical and clinical advances in the field.\n\nThis work builds directly on the foundational contributions of the late Prof. Carlo Ballatore, whose visionary leadership and pioneering research on microtubule-stabilizing triazolopyrimidines and related scaffolds have profoundly shaped our understanding of MT dysfunction in neurodegeneration. His scientific legacy, mentorship, and commitment to developing disease-modifying therapies continue to inspire and guide ongoing efforts in the lab and beyond. We remain deeply grateful for his enduring impact.\n\nRead the full editorial here: https://www.benthamscience.com/article/156309"
+    title:
+      "Editorial Accepted: Microtubule Stabilization as a Therapeutic Strategy for Alzheimer’s Disease and Tauopathies",
+    summary:
+      "The editorial co-authored by Darius J. Yohannan, Kurt R. Brunden, and Thibault Alle on microtubule stabilization as a therapeutic approach for Alzheimer’s disease and neurodegenerative tauopathies has been accepted for publication in *Current Topics in Medicinal Chemistry*.",
+    fullText:
+      "We are pleased to announce that our editorial, “Microtubule Stabilization as a Therapeutic Strategy: Updated Perspectives on Alzheimer’s Disease and Neurodegenerative Tauopathies,” has been accepted for publication in *Current Topics in Medicinal Chemistry*. This invited piece provides an updated perspective on the therapeutic potential of microtubule-stabilizing agents for tauopathies, including Alzheimer’s disease, highlighting key preclinical and clinical advances in the field.\n\nThis work builds directly on the foundational contributions of the late Prof. Carlo Ballatore, whose visionary leadership and pioneering research on microtubule-stabilizing triazolopyrimidines and related scaffolds have profoundly shaped our understanding of MT dysfunction in neurodegeneration. His scientific legacy, mentorship, and commitment to developing disease-modifying therapies continue to inspire and guide ongoing efforts in the lab and beyond. We remain deeply grateful for his enduring impact.\n\nRead the full editorial here: https://www.benthamscience.com/article/156309",
   },
   {
     date: "May 2026",
     title: "New Collaboration & Funding: GPR68 Inhibitors for Pancreatic Cancer (NCI R21)",
-    summary: "In May 2025, the Alle Laboratory was awarded an NCI R21 grant focused on the development of small-molecule inhibitors of the proton-sensing receptor GPR68 as a potential therapeutic approach for pancreatic cancer. ",
-    fullText: "The Alle Laboratory was awarded an NCI R21 grant in collaboration with Principal Investigator Dr. Irina Kufareva (Skaggs School of Pharmacy, UC San Diego). The project focuses on developing small-molecule inhibitors of the proton-sensing G protein-coupled receptor GPR68 as a novel therapeutic strategy for pancreatic ductal adenocarcinoma (PDAC). Dr. Thibault Alle serves as Co-Investigator, contributing his expertise in medicinal chemistry and structure-based drug design. This award marks an important expansion of the lab’s oncology portfolio and strengthens interdisciplinary collaborations within the UC San Diego research community.",
+    summary:
+      "In May 2025, the Alle Laboratory was awarded an NCI R21 grant focused on the development of small-molecule inhibitors of the proton-sensing receptor GPR68 as a potential therapeutic approach for pancreatic cancer. ",
+    fullText:
+      "The Alle Laboratory was awarded an NCI R21 grant in collaboration with Principal Investigator Dr. Irina Kufareva (Skaggs School of Pharmacy, UC San Diego). The project focuses on developing small-molecule inhibitors of the proton-sensing G protein-coupled receptor GPR68 as a novel therapeutic strategy for pancreatic ductal adenocarcinoma (PDAC). Dr. Thibault Alle serves as Co-Investigator, contributing his expertise in medicinal chemistry and structure-based drug design. This award marks an important expansion of the lab’s oncology portfolio and strengthens interdisciplinary collaborations within the UC San Diego research community.",
   },
   {
     date: "September 2025",
     title: "From Continuity to New Horizons: The Alle Lab Begins at UC San Diego",
-    summary: "Assistant Adjunct Professor Thibault Alle establishes a new medicinal chemistry laboratory at the Skaggs School of Pharmacy and Pharmaceutical Sciences, continuing and expanding research on microtubule-stabilizing agents for neurodegenerative diseases and antiparasitic drug discovery.",
-    fullText: "In September 2025, Dr. Thibault Alle officially launched his independent research program as Assistant Adjunct Professor at the UC San Diego Skaggs School of Pharmacy and Pharmaceutical Sciences. The new Alle Laboratory continues and expands upon research themes developed during his time in the Ballatore lab, with a strong emphasis on the design of brain-penetrant microtubule-stabilizing agents for neurodegenerative tauopathies such as Alzheimer’s disease, as well as the discovery of antiparasitic agents. The lab also maintains active collaborations in oncology drug discovery. This new chapter represents both continuity of high-quality science and the beginning of exciting new directions in medicinal chemistry at UC San Diego.",
+    summary:
+      "Assistant Adjunct Professor Thibault Alle establishes a new medicinal chemistry laboratory at the Skaggs School of Pharmacy and Pharmaceutical Sciences, continuing and expanding research on microtubule-stabilizing agents for neurodegenerative diseases and antiparasitic drug discovery.",
+    fullText:
+      "In September 2025, Dr. Thibault Alle officially launched his independent research program as Assistant Adjunct Professor at the UC San Diego Skaggs School of Pharmacy and Pharmaceutical Sciences. The new Alle Laboratory continues and expands upon research themes developed during his time in the Ballatore lab, with a strong emphasis on the design of brain-penetrant microtubule-stabilizing agents for neurodegenerative tauopathies such as Alzheimer’s disease, as well as the discovery of antiparasitic agents. The lab also maintains active collaborations in oncology drug discovery. This new chapter represents both continuity of high-quality science and the beginning of exciting new directions in medicinal chemistry at UC San Diego.",
     image: "/images/Team_June26_2.jpg",
+    imageAlt: "Alle et al. team photo, June 2026",
   },
 ];
 
@@ -109,17 +140,32 @@ export function News() {
                     </p>
                     {item.image && (
                       <div
-                        className="mt-4 max-w-[600px] mx-auto"
+                        className={
+                          Array.isArray(item.image)
+                            ? "mt-4 grid gap-4 sm:grid-cols-2 max-w-3xl mx-auto"
+                            : "mt-4 max-w-[600px] mx-auto"
+                        }
                         onClick={(e) => e.stopPropagation()}
                         onKeyDown={(e) => e.stopPropagation()}
                       >
-                        <ZoomableImage
-                          src={item.image}
-                          alt="Alle et al. team photo, June 2026"
-                          className="rounded-lg border border-border bg-card"
-                          aspectClassName="aspect-[16/10]"
-                          imageClassName="object-contain"
-                        />
+                        {(Array.isArray(item.image) ? item.image : [item.image]).map(
+                          (src, imgIndex) => (
+                            <ZoomableImage
+                              key={src}
+                              src={src}
+                              alt={
+                                item.imageAlt
+                                  ? Array.isArray(item.image)
+                                    ? `${item.imageAlt} (${imgIndex + 1})`
+                                    : item.imageAlt
+                                  : item.title
+                              }
+                              className="rounded-lg border border-border bg-card"
+                              aspectClassName="aspect-[16/10]"
+                              imageClassName="object-contain"
+                            />
+                          )
+                        )}
                       </div>
                     )}
                     <button 
