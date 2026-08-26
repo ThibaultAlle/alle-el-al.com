@@ -12,6 +12,11 @@ type NewsItem = {
   /** One path or several — use /images/... (files live in public/images) */
   image?: string | string[];
   imageAlt?: string;
+  /**
+   * `top-1-3-bottom-2`: first row = images[0] + images[2], second row = larger images[1]
+   * (expects 3 paths in order: 1, 2, 3)
+   */
+  imageLayout?: "grid" | "top-1-3-bottom-2";
 };
 
 const newsItems: NewsItem[] = [
@@ -28,6 +33,7 @@ const newsItems: NewsItem[] = [
       "/images/darius_defense_3.jpg",
     ],
     imageAlt: "Darius J. Yohannan Ph.D. defense, August 2026",
+    imageLayout: "top-1-3-bottom-2",
   },
   {
     date: "June 2026",
@@ -140,31 +146,66 @@ export function News() {
                     </p>
                     {item.image && (
                       <div
-                        className={
-                          Array.isArray(item.image)
-                            ? "mt-4 grid gap-4 sm:grid-cols-2 max-w-3xl mx-auto"
-                            : "mt-4 max-w-[600px] mx-auto"
-                        }
+                        className="mt-4"
                         onClick={(e) => e.stopPropagation()}
                         onKeyDown={(e) => e.stopPropagation()}
                       >
-                        {(Array.isArray(item.image) ? item.image : [item.image]).map(
-                          (src, imgIndex) => (
+                        {item.imageLayout === "top-1-3-bottom-2" &&
+                        Array.isArray(item.image) &&
+                        item.image.length >= 3 ? (
+                          <div className="mx-auto flex max-w-3xl flex-col gap-4">
+                            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                              <ZoomableImage
+                                src={item.image[0]}
+                                alt={`${item.imageAlt || item.title} (1)`}
+                                className="rounded-lg border border-border bg-card"
+                                aspectClassName="aspect-[16/10]"
+                                imageClassName="object-contain"
+                              />
+                              <ZoomableImage
+                                src={item.image[2]}
+                                alt={`${item.imageAlt || item.title} (3)`}
+                                className="rounded-lg border border-border bg-card"
+                                aspectClassName="aspect-[16/10]"
+                                imageClassName="object-contain"
+                              />
+                            </div>
                             <ZoomableImage
-                              key={src}
-                              src={src}
-                              alt={
-                                item.imageAlt
-                                  ? Array.isArray(item.image)
-                                    ? `${item.imageAlt} (${imgIndex + 1})`
-                                    : item.imageAlt
-                                  : item.title
-                              }
-                              className="rounded-lg border border-border bg-card"
-                              aspectClassName="aspect-[16/10]"
+                              src={item.image[1]}
+                              alt={`${item.imageAlt || item.title} (2)`}
+                              className="mx-auto w-full max-w-2xl rounded-lg border border-border bg-card"
+                              aspectClassName="aspect-[16/10] md:aspect-[21/11]"
                               imageClassName="object-contain"
                             />
-                          )
+                          </div>
+                        ) : (
+                          <div
+                            className={
+                              Array.isArray(item.image)
+                                ? "mx-auto grid max-w-3xl gap-4 sm:grid-cols-2"
+                                : "mx-auto max-w-[600px]"
+                            }
+                          >
+                            {(Array.isArray(item.image)
+                              ? item.image
+                              : [item.image]
+                            ).map((src, imgIndex) => (
+                              <ZoomableImage
+                                key={src}
+                                src={src}
+                                alt={
+                                  item.imageAlt
+                                    ? Array.isArray(item.image)
+                                      ? `${item.imageAlt} (${imgIndex + 1})`
+                                      : item.imageAlt
+                                    : item.title
+                                }
+                                className="rounded-lg border border-border bg-card"
+                                aspectClassName="aspect-[16/10]"
+                                imageClassName="object-contain"
+                              />
+                            ))}
+                          </div>
                         )}
                       </div>
                     )}
