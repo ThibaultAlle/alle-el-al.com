@@ -154,21 +154,21 @@ export function News() {
                         Array.isArray(item.image) &&
                         item.image.length >= 3 ? (
                           <div className="mx-auto flex max-w-3xl flex-col gap-4">
-                            {/* Portraits 1 & 3 on top */}
+                            {/* Portraits 1 & 3 on top — contain so they are not cropped/zoomed further */}
                             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                               <ZoomableImage
                                 src={item.image[0]}
                                 alt={`${item.imageAlt || item.title} (1)`}
                                 className="rounded-lg border border-border bg-card"
                                 aspectClassName="aspect-[4/5]"
-                                imageClassName="object-cover object-center"
+                                imageClassName="object-contain object-center"
                               />
                               <ZoomableImage
                                 src={item.image[2]}
                                 alt={`${item.imageAlt || item.title} (3)`}
                                 className="rounded-lg border border-border bg-card"
                                 aspectClassName="aspect-[4/5]"
-                                imageClassName="object-cover object-center"
+                                imageClassName="object-contain object-center"
                               />
                             </div>
                             {/* Larger landscape photo 2 below */}
