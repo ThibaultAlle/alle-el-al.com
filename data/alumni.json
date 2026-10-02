@@ -28,5 +28,28 @@
     "bio": "Designed new anti Negleria agents",
     "image": "/team/Jorge.jpeg",
     "linkedin": "https://www.linkedin.com/in/jorge-jacinto-b419ba140/"
+  },
+  {
+    "id": "darius-yohannan",
+    "name": "Darius J. Yohannan",
+    "role": "Former Graduate Student",
+    "years": "2026",
+    "current": "Now: Lecturer at the University of San Diego (USD)",
+    "bio": "Darius performs hit-to-lead optimization across several collaborations in neurodegeneration, oncology, and neglected tropical diseases. A trained synthetic organic chemist, he conducts research at the intersection of medicinal chemistry, organic chemistry, and pharmacology, and has contributed to several manuscripts and patent applications. Darius earned a T32 in Cellular and Molecular Pharmacology and serves as Chair of the Chemistry Graduate Student Council in the Department of Chemistry and Biochemistry.",
+    "image": "/team/Darius.jpg",
+    "imagePosition": "50% 12%",
+    "linkedin": "https://www.linkedin.com/in/dariusyohannan"
+  },
+  {
+    "id": "york-peng",
+    "name": "York Peng",
+    "display": "name",
+    "linkedin": "https://www.linkedin.com/in/york-peng-a65243323"
+  },
+  {
+    "id": "alexander-oveissi",
+    "name": "Alexander Oveissi",
+    "display": "name",
+    "linkedin": "https://www.linkedin.com/in/alexander-oveissi-10440a412"
   }
 ]

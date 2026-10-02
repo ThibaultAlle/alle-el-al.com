@@ -29,13 +29,16 @@ interface Person {
 interface Alumni {
   id: string;
   name: string;
-  role: string;
-  title: string;
-  years: string;
-  current: string;
-  bio: string;
-  image: string;
+  role?: string;
+  title?: string;
+  years?: string;
+  current?: string;
+  bio?: string;
+  image?: string;
+  imagePosition?: string;
   linkedin?: string;
+  /** "name" renders only the name (linked when LinkedIn is set). Default is the photo card. */
+  display?: "name" | "card";
 }
 
 function getInitials(name: string): string {
@@ -174,15 +177,15 @@ function AlumniPhoto({ alum }: { alum: Alumni }) {
   const [imgError, setImgError] = useState(false);
   const initials = getInitials(alum.name);
 
-  if (!imgError) {
+  if (alum.image && !imgError) {
     return (
       <div className="w-14 h-14 rounded-full overflow-hidden bg-muted ring-1 ring-border/50 shrink-0 relative">
         <Image
-          src={alum.image}
+          src={alum.image ?? ""}
           alt={alum.name}
           fill
           className="object-cover"
-          style={{ objectPosition: "50% 25%" }}
+          style={{ objectPosition: alum.imagePosition || "50% 25%" }}
           onError={() => setImgError(true)}
         />
       </div>
@@ -409,10 +412,32 @@ export function Team() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {alumni.map((alum) => (
+          {alumni.filter((alum) => alum.display !== "name").map((alum) => (
             <AlumniCard key={alum.id} alum={alum} />
           ))}
         </div>
+
+        {alumni.some((alum) => alum.display === "name") && (
+          <ul className="mt-4 space-y-1.5">
+            {alumni.filter((alum) => alum.display === "name").map((alum) => (
+              <li key={alum.id}>
+                {alum.linkedin ? (
+                  <a
+                    href={alum.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold tracking-tight leading-tight hover:text-accent transition-colors underline decoration-accent/50 hover:decoration-accent"
+                    title="LinkedIn"
+                  >
+                    {alum.name}
+                  </a>
+                ) : (
+                  <span className="font-semibold tracking-tight leading-tight">{alum.name}</span>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
       </div> {/* close content div */}
     </section>

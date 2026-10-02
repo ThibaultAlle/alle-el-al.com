@@ -29,19 +29,6 @@
   },
   {
     "id": "Grad student",
-    "name": "Darius J. Yohannan",
-    "role": "Graduate Student",
-    "title": "Ph.D. Organic Chemistry, expected 2026",
-    "bio": "Darius performs hit-to-lead optimization across several collaborations in neurodegeneration, oncology, and neglected tropical diseases. A trained synthetic organic chemist, he conducts research at the intersection of medicinal chemistry, organic chemistry, and pharmacology, and has contributed to several manuscripts and patent applications. Darius earned a T32 in Cellular and Molecular Pharmacology and serves as Chair of the Chemistry Graduate Student Council in the Department of Chemistry and Biochemistry. ",
-    "email": "dyohannan@ucsd.edu",
-    "linkedin": "https://www.linkedin.com/in/dariusyohannan",
-    "orcid": "0009-0007-0394-8234",
-    "image": "/team/Darius.jpg",
-    "imagePosition": "50% 12%",
-    "imageZoom": 1.00
-  }, 
-  {
-    "id": "Grad student",
     "name": "Yashpreet Kaur",
     "role": "Graduate Student",
     "title": "Ph.D. BMS, expected 2031",
@@ -50,9 +37,9 @@
     "linkedin": "https://www.linkedin.com/in/yashpreet-kaur-4b3589271/",
     "image": "/team/Yashpreet.png",
     "imagePosition": "50% 12%",
-    "imageZoom": 1.00
+    "imageZoom": 1.0
   },
-  {   
+  {
     "id": "Post-Bacc Researcher",
     "name": "Tyler Bui",
     "role": "Post-Bacc Researcher",
@@ -62,8 +49,8 @@
     "orcid": "https://orcid.org/0009-0004-9548-2790",
     "image": "/team/Tyler.jpg",
     "imagePosition": "50% 12%",
-    "imageZoom": 1.10
-  },  
+    "imageZoom": 1.1
+  },
   {
     "id": "Undergrad1",
     "name": "Lana Badan Cerqueira",
@@ -74,7 +61,7 @@
     "linkedin": "https://www.linkedin.com/in/lana-badan-6921091ba/",
     "image": "/team/Lana.jpg",
     "imagePosition": "50% 50%",
-    "imageZoom": 1.30
+    "imageZoom": 1.3
   },
   {
     "id": "Undergrad2",
@@ -86,7 +73,7 @@
     "linkedin": "https://www.linkedin.com/in/colton-long-20a53b333",
     "image": "/team/Colton.jpg",
     "imagePosition": "50% 40%",
-    "imageZoom": 1.30
+    "imageZoom": 1.3
   },
   {
     "id": "Undergrad3",
@@ -108,18 +95,7 @@
     "email": "jparkrobinson@ucsd.edu",
     "image": "/team/James.jpg",
     "imagePosition": "50% 08%",
-    "imageZoom": 1.00
-  
-  },
-  {
-    "id": "Undergrad5",
-    "name": "Alexander Oveissi",
-    "role": "Undergraduate Researcher",
-    "title": "B.S. Neurobiology, Class of 2027",
-    "bio": "Alex contributes to the lab's research by running reactions and performing compound extraction, purification, and characterization using LC-MS and related techniques. His work ensures the quality and integrity of chemical samples critical to ongoing projects in the group.",
-    "email": "aoveissi@ucsd.edu",
-    "linkedin": "https://www.linkedin.com/in/alexander-oveissi-10440a412",
-    "image": "/team/alexander.jpg"
+    "imageZoom": 1.0
   },
   {
     "id": "Undergrad6",
@@ -129,16 +105,6 @@
     "bio": "Alix synthesizes diaryl compounds for kinase inhibition using photocatalysis.",
     "email": "a1wilkinson@ucsd.edu",
     "image": "/team/Alix.jpg"
-  },
-  {
-    "id": "Undergrad7",
-    "name": "York Peng",
-    "role": "Undergraduate Researcher",
-    "title": "B.S. Bioengineering, Class of 2027",
-    "bio": "York synthesizes and evaluates d4-cystamine, a deuterated derivative designed to enhance anti-inflammatory and anti-fibrotic activity. He also assists in the Schistosoma Mansoni derivatives project .",
-    "email": "yop020@ucsd.edu",
-    "linkedin": "https://www.linkedin.com/in/york-peng-a65243323",
-    "image": "/team/mei-lin.jpg"
   },
   {
     "id": "Undergrad",
